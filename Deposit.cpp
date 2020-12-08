@@ -5,7 +5,7 @@ using std::cout;
 using std::cin;
 
 // ACCOUNT_DATA 객체들을 값으로 가지는 배열을 인수로 받아야 함
-void Deposit(ACCOUNT_DATA *arr, int acc_count)
+void Deposit(ACCOUNT_DATA *arr[], int acc_count)
 {
     int dep_id, cash, find=0;
 
@@ -19,9 +19,9 @@ void Deposit(ACCOUNT_DATA *arr, int acc_count)
 
     for(int i=0; i<acc_count; i++)
     {
-        if(arr[i].account_num == dep_id)
+        if(arr[i]->ShowAccNum() == dep_id)
         {
-            arr[i].cash += cash;
+            arr[i]->DepositCash(cash);
             find = 1;
             cout<<"입금완료!\n";
             break;
