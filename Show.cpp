@@ -29,12 +29,12 @@ int ShowMenu()
     return choice;
 }
 
-void ShowAllAcc(ACCOUNT_DATA *arr, int acc_count)
+void ShowAllAcc(ACCOUNT_DATA* arr[], int acc_count)
 {
     for(int i=0; i<acc_count; i++)
     {
-        cout<<"\n°èÁÂID: "<<arr[i].account_num<<"\n";
-        cout<<"ÀÌ ¸§: "<<arr[i].name<<"\n";
-        cout<<"ÀÜ ¾×: "<<arr[i].cash<<"\n";
+        cout<<"\n°èÁÂID: "<<arr[i]->ShowAccNum()<<"\n";
+        cout<<"ÀÌ ¸§: "<<arr[i]->ShowName()<<"\n";
+        cout<<"ÀÜ ¾×: "<<arr[i]->ShowCash()<<"\n";
     }
 }
