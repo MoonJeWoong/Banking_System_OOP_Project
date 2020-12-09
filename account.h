@@ -34,6 +34,11 @@ public:
     char* ShowName() const {return name;}
 
     int ShowCash() const {return cash;}
+
+    ~ACCOUNT_DATA()
+    {
+        delete []name;
+    }
     
 };
 

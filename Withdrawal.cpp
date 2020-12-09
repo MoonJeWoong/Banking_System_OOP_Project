@@ -17,10 +17,14 @@ void Withdrawal(ACCOUNT_DATA *arr[], int acc_count)
     cout<<"출금액: ";
     cin>>cash;
 
+    if(cash<0) {cout<<"금액이 0보다 커야합니다.\n"; return;}
+
     for(int i=0; i<acc_count; i++)
     {
         if(arr[i]->ShowAccNum() == with_id)
         {
+            if(arr[i]->ShowCash()<cash) {cout<<"계좌에 잔액이 부족합니다.\n"; return;}
+
             arr[i]->WithdrawCash(cash);
             find = 1;
             cout<<"출금완료\n";

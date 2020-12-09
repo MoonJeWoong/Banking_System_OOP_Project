@@ -11,7 +11,7 @@ int main(void){
     
     int choice;
     int acc_count = 0;
-    ACCOUNT_DATA* p[10];    // 나중에 동적 메모리 할당으로 바꿔보자!
+    ACCOUNT_DATA* p[10];
 
     while(true)
     {

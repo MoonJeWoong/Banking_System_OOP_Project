@@ -17,6 +17,8 @@ void Deposit(ACCOUNT_DATA *arr[], int acc_count)
     cout<<"입금액: ";
     cin>>cash;
 
+    if(cash<0) {cout<<"입금액이 0보다 커야합니다.\n"; return;}
+
     for(int i=0; i<acc_count; i++)
     {
         if(arr[i]->ShowAccNum() == dep_id)
