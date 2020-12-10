@@ -25,6 +25,12 @@ public:
         strcpy(this->name, name);
     }
 
+    ACCOUNT_DATA(const ACCOUNT_DATA &copy) : account_num(copy.account_num), cash(copy.cash)
+    {
+        this->name = new char[strlen(copy.name)+1];
+        strcpy(this->name, copy.name);
+    }
+
     void DepositCash(int cash) {this->cash+=cash;}
 
     void WithdrawCash(int cash) {this->cash-=cash;}
