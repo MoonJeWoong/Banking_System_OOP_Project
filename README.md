@@ -1,4 +1,4 @@
-# Banking_System_OOP-Project(ver 0.3)
+# Banking_System_OOP-Project(ver 0.4)
 - Toy project of C++
 - source: 윤성우의 열혈 C++ 프로그래밍
 
@@ -10,3 +10,6 @@
 
 #### ver 0.3 업데이트 사항
 - Account 클래스의 복사생성자 추가 완료
+
+#### ver 0.4 업데이트 사항
+- Account 클래스 내 멤버함수 const 선언 추가 완료
