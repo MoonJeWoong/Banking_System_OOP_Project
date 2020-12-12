@@ -1,4 +1,4 @@
-# Banking_System_OOP-Project(ver 0.4)
+# Banking_System_OOP-Project(ver 0.5)
 - Toy project of C++
 - source: 윤성우의 열혈 C++ 프로그래밍
 
@@ -13,3 +13,7 @@
 
 #### ver 0.4 업데이트 사항
 - Account 클래스 내 멤버함수 const 선언 추가 완료
+
+#### ver 0.5 업데이트 사항
+- Account_Handler 컨트롤 클래스 추가완료
+- 전체 Account 객체 데이터를 관리하는 객체 포인터 배열을 컨트롤 클래스에 추가

@@ -1,11 +1,11 @@
 #include <iostream>
-#include "Withdrawal.h"
+#include "account.h"
 
 using std::cin;
 using std::cout;
 
 // ACCOUNT_DATA 객체들을 값으로 가지는 배열을 인수로 받아야 함
-void Withdrawal(ACCOUNT_DATA *arr[], int acc_count)
+void Account_Handler::Withdrawal()
 {
     int with_id, cash, find=0;
 
@@ -21,11 +21,11 @@ void Withdrawal(ACCOUNT_DATA *arr[], int acc_count)
 
     for(int i=0; i<acc_count; i++)
     {
-        if(arr[i]->ShowAccNum() == with_id)
+        if(acc_list[i]->ShowAccNum() == with_id)
         {
-            if(arr[i]->ShowCash()<cash) {cout<<"계좌에 잔액이 부족합니다.\n"; return;}
+            if(acc_list[i]->ShowCash()<cash) {cout<<"계좌에 잔액이 부족합니다.\n"; return;}
 
-            arr[i]->WithdrawCash(cash);
+            acc_list[i]->WithdrawCash(cash);
             find = 1;
             cout<<"출금완료\n";
             break;

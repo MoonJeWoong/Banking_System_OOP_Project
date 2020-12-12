@@ -1,43 +1,40 @@
 #include <iostream>
-#include "MakeAccount.h"
-#include "Withdrawal.h"
-#include "Deposit.h"
-#include "Show.h"
+#include "account.h"
 
 using std::cout;
 using std::cin;
 
 int main(void){
+
+    enum {MAKE=1, DEPOSIT, WITHDRAW, INQUIRE, EXIT};
     
     int choice;
-    int acc_count = 0;
-    ACCOUNT_DATA* p[10];
+    Account_Handler handler;
 
     while(true)
     {
-        choice = ShowMenu();
+        choice = handler.ShowMenu();
         
         switch(choice)
         {
             // 계좌개설
             case MAKE:
-                MakeAccount(p, acc_count);
-                acc_count++;
+                handler.MakeAccount();
                 continue;
 
             //입금
             case DEPOSIT:
-                Deposit(p, acc_count);
+                handler.Deposit();
                 continue;
 
             //출금
             case WITHDRAW:
-                Withdrawal(p, acc_count);
+                handler.Withdrawal();
                 continue;
 
             //계좌정보 전체 출력
             case INQUIRE:
-                ShowAllAcc(p, acc_count);
+                handler.ShowAllAcc();
                 continue;
 
             //프로그램 종료
