@@ -48,4 +48,29 @@ public:
     
 };
 
+class Account_Handler
+{
+private:
+    ACCOUNT_DATA* acc_list[50];
+    int acc_count;
+public:
+    Account_Handler() : acc_count(0)
+    {}
+
+    void MakeAccount();
+
+    void Deposit();
+
+    void Withdrawal();
+
+    int ShowMenu();
+
+    void ShowAllAcc();
+
+    ~Account_Handler()
+    {
+        
+    }
+};
+
 #endif

@@ -1,11 +1,11 @@
 #include <iostream>
-#include "Deposit.h"
+#include "account.h"
 
 using std::cout;
 using std::cin;
 
 // ACCOUNT_DATA 객체들을 값으로 가지는 배열을 인수로 받아야 함
-void Deposit(ACCOUNT_DATA *arr[], int acc_count)
+void Account_Handler::Deposit()
 {
     int dep_id, cash, find=0;
 
@@ -21,9 +21,9 @@ void Deposit(ACCOUNT_DATA *arr[], int acc_count)
 
     for(int i=0; i<acc_count; i++)
     {
-        if(arr[i]->ShowAccNum() == dep_id)
+        if(acc_list[i]->ShowAccNum() == dep_id)
         {
-            arr[i]->DepositCash(cash);
+            acc_list[i]->DepositCash(cash);
             find = 1;
             cout<<"입금완료!\n";
             break;

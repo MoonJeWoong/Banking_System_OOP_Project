@@ -1,10 +1,10 @@
 #include <iostream>
-#include "MakeAccount.h"
+#include "account.h"
 
 using std::cin;
 using std::cout;
 
-void MakeAccount(ACCOUNT_DATA* arr[], int acc_count)
+void Account_Handler::MakeAccount()
 {
     int ID, cash;
     char name[20];
@@ -22,7 +22,8 @@ void MakeAccount(ACCOUNT_DATA* arr[], int acc_count)
 
     if(cash<0) {cout<<"입금액이 0보다 커야합니다.\n"; return;}
 
-    arr[acc_count] = new ACCOUNT_DATA(ID, name, cash);
+    acc_list[acc_count] = new ACCOUNT_DATA(ID, name, cash);
+    acc_count++;
 
     cout<<"계좌개설 완료!\n";
 }

@@ -1,10 +1,10 @@
-#include "Show.h"
+#include "account.h"
 #include <iostream>
 
 using std::cin;
 using std::cout;
 
-int ShowMenu()
+int Account_Handler::ShowMenu()
 {
     int choice=0;
 
@@ -29,12 +29,12 @@ int ShowMenu()
     return choice;
 }
 
-void ShowAllAcc(ACCOUNT_DATA* arr[], int acc_count)
+void Account_Handler::ShowAllAcc()
 {
     for(int i=0; i<acc_count; i++)
     {
-        cout<<"\n°èÁÂID: "<<arr[i]->ShowAccNum()<<"\n";
-        cout<<"ÀÌ ¸§: "<<arr[i]->ShowName()<<"\n";
-        cout<<"ÀÜ ¾×: "<<arr[i]->ShowCash()<<"\n";
+        cout<<"\n°èÁÂID: "<<acc_list[i]->ShowAccNum()<<"\n";
+        cout<<"ÀÌ ¸§: "<<acc_list[i]->ShowName()<<"\n";
+        cout<<"ÀÜ ¾×: "<<acc_list[i]->ShowCash()<<"\n";
     }
 }
