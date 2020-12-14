@@ -1,17 +1,11 @@
-MakeAccount.o : account.h MakeAccount.cpp
-	g++ -c MakeAccount.cpp
+Account.o : Account.h BankingCommonDecl.h Account.cpp
+	g++ -c Account.cpp
 
-Deposit.o : account.h Deposit.cpp
-	g++ -c Deposit.cpp
+AccountHandler.o : Account.h AccountHandler.h NormalAccount.h HighCreditAccount.h BankingCommonDecl.h AccountHandler.cpp
+	g++ -c AccountHandler.cpp
 
-Withdrawal.o : account.h Withdrawal.cpp
-	g++ -c Withdrawal.cpp
-
-Show.o : account.h Show.cpp
-	g++ -c Show.cpp
-
-main.o : account.h main.cpp
+main.o : BankingCommonDecl.h AccountHandler.h main.cpp
 	g++ -c main.cpp
 
-main : MakeAccount.o Deposit.o Withdrawal.o Show.o main.o
-	g++ MakeAccount.o Deposit.o Withdrawal.o Show.o main.o -o main
+main : Account.o AccountHandler.o main.o
+	g++ Account.o AccountHandler.o main.o -o main
