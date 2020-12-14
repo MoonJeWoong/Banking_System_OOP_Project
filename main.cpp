@@ -1,12 +1,10 @@
-#include <iostream>
-#include "account.h"
+#include "BankingCommonDecl.h"
+#include "AccountHandler.h"
 
 using std::cout;
 using std::cin;
 
 int main(void){
-
-    enum {MAKE=1, DEPOSIT, WITHDRAW, INQUIRE, EXIT};
     
     int choice;
     Account_Handler handler;
