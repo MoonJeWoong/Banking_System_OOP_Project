@@ -2,6 +2,7 @@
 #define __ACCOUNT_HANDLER_H__
 
 #include "Account.h"
+#include "String.h"
 
 class Account_Handler
 {
