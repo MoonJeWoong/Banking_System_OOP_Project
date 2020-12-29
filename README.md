@@ -1,4 +1,4 @@
-# Banking_System_OOP-Project(ver 0.6)
+# Banking_System_OOP-Project(ver 0.8)
 - Toy project of C++
 - source: 윤성우의 열혈 C++ 프로그래밍
 
@@ -24,3 +24,7 @@
 
 #### ver 0.7 업데이트 사항
 - 파일 분할 코드 정리 완료
+
+#### ver 0.8 업데이트 사항
+- String 클래스 사용자 정의
+- 기존 클래스들의 정의 간결화

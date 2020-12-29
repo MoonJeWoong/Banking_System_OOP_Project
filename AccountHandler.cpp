@@ -2,6 +2,7 @@
 #include "NormalAccount.h"
 #include "HighCreditAccount.h"
 #include "BankingCommonDecl.h"
+#include "String.h"
 
 using std::cin;
 using std::cout;
@@ -12,7 +13,7 @@ Account_Handler::Account_Handler() : acc_count(0) { }
 void Account_Handler::MakeAccount()
 {
     int ID, cash, interest_rate, credit_rate, choice=0;
-    char name[20];
+    String name;
 
     cout<<endl<<"[°èÁÂÁ¾·ù¼±ÅÃ]"<<endl;
     cout<<"1.º¸Åë¿¹±Ý°èÁÂ 2.½Å¿ë½Å·Ú°èÁÂ"<<endl<<"¼±ÅÃ: ";

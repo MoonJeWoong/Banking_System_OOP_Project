@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<cstring>
+#include "String.h"
 
 using std::cin;
 using std::cout;
