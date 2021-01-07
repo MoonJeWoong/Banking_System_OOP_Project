@@ -2,6 +2,7 @@
 #include "NormalAccount.h"
 #include "HighCreditAccount.h"
 #include "BankingCommonDecl.h"
+#include "AccountException.h"
 #include "String.h"
 
 using std::cin;
@@ -35,13 +36,28 @@ void Account_Handler::MakeAccount()
         cout<<"이 름: ";
         cin>>name;
 
-        cout<<"입금액: ";
-        cin>>cash;
+        int check=0;
+        while(check==0)
+        {
+            try
+            {
+                cout<<"입금액: ";
+                cin>>cash;
+
+                if(cash<0)
+                    throw InputZeroException();
+                
+                check = 1;
+            }
+            catch(InputZeroException expn)
+            {
+                expn.ShowException();
+            }
+        }
+        
 
         cout<<"이자율: ";
         cin>>interest_rate;
-
-        if(cash<0) {cout<<"입금액이 0보다 커야합니다.\n"; return;}
 
         acc_list[acc_count] = new NormalAccount(ID, name, cash, interest_rate);
         acc_count++;
@@ -55,9 +71,24 @@ void Account_Handler::MakeAccount()
         cout<<"이 름: ";
         cin>>name;
 
-        cout<<"입금액: ";
-        cin>>cash;
-        if(cash<0) {cout<<"입금액이 0보다 커야합니다.\n"; return;}
+        int check=0;
+        while(check==0)
+        {
+            try
+            {
+                cout<<"입금액: ";
+                cin>>cash;
+
+                if(cash<0)
+                    throw InputZeroException();
+                
+                check = 1;
+            }
+            catch(InputZeroException expn)
+            {
+                expn.ShowException();
+            }
+        }
 
         cout<<"이자율: ";
         cin>>interest_rate;
@@ -86,6 +117,7 @@ void Account_Handler::MakeAccount()
     else /* 1,2 이외의 정수값이 입력된 경우 */
     {
         cout<<"잘못된 입력값입니다."<<endl;
+        return;
     }
 
     cout<<"계좌개설 완료!\n";
@@ -100,10 +132,24 @@ void Account_Handler::Deposit()
     cout<<"계좌ID: ";
     cin>>dep_id;
 
-    cout<<"입금액: ";
-    cin>>cash;
+    int check=0;
+    while(check==0)
+    {
+        try
+        {
+            cout<<"입금액: ";
+            cin>>cash;
 
-    if(cash<0) {cout<<"입금액이 0보다 커야합니다.\n"; return;}
+            if(cash<0)
+                throw InputZeroException();
+            
+            check = 1;
+        }
+        catch(InputZeroException expn)
+        {
+            expn.ShowException();
+        }
+    }
 
     for(int i=0; i<acc_count; i++)
     {
@@ -134,16 +180,38 @@ void Account_Handler::Withdrawal()
     cout<<"계좌ID: ";
     cin>>with_id;
 
-    cout<<"출금액: ";
-    cin>>cash;
+    int check=0;
+    while(check==0)
+    {
+        try
+        {
+            cout<<"출금액: ";
+            cin>>cash;
 
-    if(cash<0) {cout<<"금액이 0보다 커야합니다.\n"; return;}
+            if(cash<0)
+                throw InputZeroException();                
+            check = 1;
+        }
+        catch(InputZeroException expn)
+        {
+            expn.ShowException();
+        }
+    }
 
     for(int i=0; i<acc_count; i++)
     {
         if(acc_list[i]->ShowAccNum() == with_id)
         {
-            if(acc_list[i]->ShowCash()<cash) {cout<<"계좌에 잔액이 부족합니다.\n"; return;}
+            try
+            {
+                if(acc_list[i]->ShowCash()<cash)
+                    throw WithdrawException(acc_list[i]->ShowCash());
+            }
+            catch(WithdrawException expn)
+            {
+                expn.ShowException();
+                return;
+            }
 
             acc_list[i]->WithdrawCash(cash);
             find = 1;

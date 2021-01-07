@@ -1,7 +1,7 @@
 Account.o : String.h Account.h BankingCommonDecl.h Account.cpp
 	g++ -c Account.cpp
 
-AccountHandler.o : String.h Account.h AccountHandler.h NormalAccount.h HighCreditAccount.h BankingCommonDecl.h AccountHandler.cpp
+AccountHandler.o : AccountException.h BoundCheckArray.h String.h Account.h AccountHandler.h NormalAccount.h HighCreditAccount.h BankingCommonDecl.h AccountHandler.cpp
 	g++ -c AccountHandler.cpp
 
 String.o : String.h String.cpp
