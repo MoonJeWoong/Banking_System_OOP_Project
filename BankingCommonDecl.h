@@ -2,6 +2,7 @@
 #define __BANKING_COMMON_H__
 
 #include<iostream>
+#include<cstdlib>
 #include<cstring>
 #include "String.h"
 

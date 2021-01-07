@@ -20,6 +20,14 @@ ACCOUNT_DATA::ACCOUNT_DATA(const ACCOUNT_DATA &copy) : account_num(copy.account_
     this->name = name;
 }
 
+ACCOUNT_DATA& ACCOUNT_DATA::operator=(const ACCOUNT_DATA &obj)
+{
+    account_num = obj.account_num;
+    cash = obj.cash;
+    name = obj.name;
+    return *this;
+}
+
 void ACCOUNT_DATA::DepositCash(int cash) {this->cash+=cash;}
 
 void ACCOUNT_DATA::WithdrawCash(int cash) {this->cash-=cash;}
